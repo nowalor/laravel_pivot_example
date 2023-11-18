@@ -19,5 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('/tasks/{task}/')->group(function() {
-    Route::apiResource('categories', \App\Http\Controllers\TaskCategoryController::class);
+    Route::apiResource('categories', \App\Http\Controllers\TaskCategoryController::class)
+        ->only(['index']);
 });

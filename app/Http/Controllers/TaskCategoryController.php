@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class TaskCategoryController extends Controller
 {
-    public function index(Task $task)
+    public function index(Task $task): JsonResponse
     {
-        return $task->categories;
+        $categories = $task->categories;
+
+        return response()->json([
+            'data' => $categories,
+        ]);
     }
 }
