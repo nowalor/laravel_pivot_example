@@ -12,6 +12,8 @@ class Category extends Model
 
     protected $fillable = ['name'];
 
+    protected $hidden = ['pivot'];
+
     public function tasks(): BelongsToMany
     {
         return $this->belongsToMany(Task::class);
