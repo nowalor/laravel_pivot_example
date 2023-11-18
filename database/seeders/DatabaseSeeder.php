@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Task;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([CategorySeeder::class]);
+        $this->command->info('Categories seeded');
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call([TaskSeeder::class]);
+        $this->command->info('Tasks seeded');
+
+        $this->call([TaskCategorySeeder::class]);
+        $this->command->info('Tasks->category relations seeded');
     }
 }
