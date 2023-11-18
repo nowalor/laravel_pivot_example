@@ -14,10 +14,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([CategorySeeder::class]);
-        $this->command->info('Categories seeder');
+        $this->command->info('Categories seeded');
 
         $this->call([TaskSeeder::class]);
-        $this->command->info('Tasks seeder');
+        $this->command->info('Tasks seeded');
 
+        $this->call([TaskCategorySeeder::class]);
+        $this->command->info('Tasks->category relations seeded');
     }
 }
